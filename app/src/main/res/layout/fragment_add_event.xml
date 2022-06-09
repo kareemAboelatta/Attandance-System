@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/opacityWhiteColor"
+    android:gravity="center_horizontal"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Write what you see that's important and employee will see it"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        />
+
+
+    <EditText
+        android:id="@+id/event_caption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:layout_margin="@dimen/_5sdp"
+        android:elevation="@dimen/_1sdp"
+        android:gravity="top"
+        android:hint="Don't forget our meeting tomorrow at 10:00 AM"
+        android:lines="3"
+        android:padding="@dimen/_9sdp"
+        android:textSize="@dimen/_20sdp"
+        />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/event_progress"
+        android:visibility="gone"
+        android:progressTint="@color/colorPrimaryDark"
+        android:foregroundTint="@color/colorPrimaryDark"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:progressBackgroundTint="@color/colorPrimaryDark"
+        android:secondaryProgressTint="@color/colorPrimaryDark"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Priority of the announcement"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:textSize="23sp"
+        />
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp"
+        android:value="1"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="23sp"
+        android:id="@+id/event_priority"
+        />
+
+    <Button
+        android:id="@+id/event_publish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Publish"
+        android:textColor="@color/white"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        />
+</LinearLayout>

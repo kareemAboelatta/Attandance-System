@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cnb_unselectedColor="@color/colorPink">
+
+    <item
+        android:id="@+id/requestForJoin"
+        android:icon="@drawable/ic_admin_panel_request"
+        android:title="Requests"
+        app:cnb_iconColor="@color/colorPink"
+        app:cnb_textColor="@color/colorPink"
+        />
+
+    <item
+        android:id="@+id/reports"
+        android:icon="@drawable/ic_reports"
+        android:title="Reports"
+        app:cnb_iconColor="@color/colorBlue"
+        app:cnb_textColor="@color/colorBlue"
+        />
+
+    <item
+        android:id="@+id/allUsers"
+        android:icon="@drawable/ic_groups"
+        android:title="All Employees"
+        app:cnb_iconColor="@color/colorGreen"
+        app:cnb_textColor="@color/colorGreen"
+        />
+
+    <item
+        android:id="@+id/add_event"
+        android:icon="@drawable/ic_add"
+        android:title="Add Event"
+        app:cnb_iconColor="@color/colorAccent"
+        app:cnb_textColor="@color/colorAccent"
+        />
+
+
+
+</menu>

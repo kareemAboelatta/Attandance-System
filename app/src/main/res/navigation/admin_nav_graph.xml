@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/admin_nav_graph"
+    app:startDestination="@id/fragmentRequests">
+
+    <fragment
+        android:id="@+id/fragmentRequests"
+        android:name="com.example.attendance.ui.fragment.admin.FragmentRequests"
+        android:label="FragmentRequests" >
+        <action
+            android:id="@+id/action_fragmentRequests_to_fragmentReports"
+            app:destination="@id/fragmentReports" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentReports"
+        android:name="com.example.attendance.ui.fragment.admin.FragmentReports"
+        android:label="FragmentReports" >
+        <action
+            android:id="@+id/action_fragmentReports_to_fragmentAllEmps"
+            app:destination="@id/fragmentAllEmps" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAllEmps"
+        android:name="com.example.attendance.ui.fragment.admin.FragmentAllEmps"
+        android:label="FragmentAllEmps" >
+        <action
+            android:id="@+id/action_fragmentAllEmps_to_fragmentAddEvent"
+            app:destination="@id/fragmentAddEvent" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAddEvent"
+        android:name="com.example.attendance.ui.fragment.admin.FragmentAddEvent"
+        android:label="FragmentAddEvent" />
+</navigation>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    app:cardBackgroundColor="#FCF9F9"
+    android:layout_margin="@dimen/_4sdp"
+    app:contentPadding="@dimen/_7sdp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+
+        <LinearLayout
+            android:id="@+id/post_profileLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:elevation="@dimen/_2sdp"
+            android:layout_margin="@dimen/_2sdp"
+            >
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/post_userPicture"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_profile"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="@dimen/_2sdp"
+                ></de.hdodenhof.circleimageview.CircleImageView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/_2sdp"
+                android:padding="@dimen/_3sdp"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:id="@+id/post_userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:lines="1"
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/_20sdp"
+                    android:paddingVertical="@dimen/_4sdp"
+                    android:background="@drawable/custom_shape">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="?attr/selectableItemBackground"
+                        >
+
+                        <TextView
+                            android:id="@+id/post_text_anyone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="anyone"
+                            android:lines="1"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+
+
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/post_TimeIv"
+                    android:text="33min "
+                    android:lines="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
+        <TextView
+            android:id="@+id/post_caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="normal"
+            android:text="I love my mom"
+            android:autoLink="all"
+            android:layout_margin="@dimen/_2sdp"
+            />
+
+        <TextView
+            android:id="@+id/post_language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            android:visibility="gone"
+            android:gravity="end"
+            android:text="translated from en"
+            android:textColor="@color/purple_500"
+            android:layout_margin="@dimen/_2sdp"
+            />
+
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#F5F4F0"
+            />
+
+
+
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
