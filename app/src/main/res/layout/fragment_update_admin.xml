@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        android:title="Your Attendance"
+        android:titleTextColor="@android:color/white"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_back_update"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="@color/trans"
+            android:tint="@color/white"
+
+            />
+
+        <TextView
+            android:id="@+id/update_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:text="Update kareem Data..."
+            android:textColor="@color/white"
+            />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/_5sdp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="@dimen/_10sdp"
+            android:text="What you want to update ?"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            />
+
+        <ImageView
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:src="@drawable/question"
+            android:scaleType="centerInside"
+            android:layout_margin="@dimen/_10sdp"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="22sp"
+                android:layout_weight="1"
+                />
+            <Button
+                android:id="@+id/btn_update_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="update now"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Salary"
+                android:textSize="22sp"
+                android:layout_weight="1"
+                />
+            <Button
+                android:id="@+id/btn_update_salary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="update now"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Roll "
+                android:textSize="22sp"
+                android:layout_weight="1"
+                />
+            <Button
+                android:id="@+id/btn_update_roll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="update now"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:textStyle="bold"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Branch"
+                android:textSize="22sp"
+                android:layout_weight="1"
+
+
+                />
+            <Button
+                android:id="@+id/btn_update_branch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="update now"
+                android:textColor="@color/white"
+                android:layout_weight="1"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="back"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:drawableStart="@drawable/ic_arrow_back"
+            />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

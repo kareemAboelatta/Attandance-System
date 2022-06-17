@@ -63,7 +63,7 @@ class AttendanceFragment : Fragment(R.layout.fragment_attendance) {
         rec_attendance.layoutManager=linearLayout
 
 
-        viewModel.getAttendance()
+        viewModel.getAttendance(auth.currentUser?.uid!!)
         viewModel.getAttendanceLiveData.observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.SUCCESS -> {

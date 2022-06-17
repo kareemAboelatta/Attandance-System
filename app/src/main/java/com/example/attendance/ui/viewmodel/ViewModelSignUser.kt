@@ -55,6 +55,15 @@ class ViewModelSignUser @Inject constructor(
         }
     }
 
+    var resetPasswordLiveData =  MutableLiveData<Resource<Boolean>>()
+    fun resetPassword(email: String){
+        viewModelScope.launch {
+            resetPasswordLiveData=repository.resetPassword(email)
+        }
+    }
+
+
+
 
 
 }

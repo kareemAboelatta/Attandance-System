@@ -19,9 +19,9 @@
         />
 
     <item
-        android:id="@+id/chats"
-        android:icon="@drawable/chat"
-        android:title="Chats"
+        android:id="@+id/fragmentNotifications"
+        android:icon="@drawable/ic_notifications"
+        android:title="Notifications"
         />
 
     <item

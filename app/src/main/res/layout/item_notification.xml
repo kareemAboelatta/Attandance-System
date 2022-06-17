@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_20sdp"
+    app:cardElevation="@dimen/_20sdp"
+    app:cardBackgroundColor="@color/white"
+    android:layout_margin="@dimen/_8sdp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_5sdp"
+        >
+
+        <ImageView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:src="@drawable/ic_notifications"
+            android:layout_margin="@dimen/_10sdp"
+            app:tint="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/notification_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hey Kareem, Your request For Vacation had been accepted from admin"
+            android:textStyle="italic"
+            android:textColor="@color/black"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            />
+
+
+        <ImageButton
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:src="@drawable/ic_more"
+            android:layout_gravity="center"
+            android:background="@color/trans"
+            android:scaleType="center"
+            app:tint="@color/black" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

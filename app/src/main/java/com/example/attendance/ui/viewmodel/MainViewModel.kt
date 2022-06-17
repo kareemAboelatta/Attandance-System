@@ -59,14 +59,25 @@ val auth: FirebaseAuth,
         }
 
     }
+
     private var _getAttendanceLiveData : MutableLiveData<Resource<List<String>>> = MutableLiveData()
     val getAttendanceLiveData: LiveData<Resource<List<String>>> get() = _getAttendanceLiveData
-    fun getAttendance() {
+    fun getAttendance(id:String) {
         viewModelScope.launch {
-            _getAttendanceLiveData=repository.getAttendance()
+            _getAttendanceLiveData=repository.getAttendance(id)
         }
 
     }
+
+    private var _getNotificationsLiveData : MutableLiveData<Resource<List<String>>> = MutableLiveData()
+    val getNotificationsLiveData: LiveData<Resource<List<String>>> get() = _getNotificationsLiveData
+    fun getNotifications(id:String) {
+        viewModelScope.launch {
+            _getNotificationsLiveData = repository.getNotificatios(id)
+        }
+
+    }
+
 
 
 

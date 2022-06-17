@@ -3,13 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cnb_unselectedColor="@color/colorPink">
 
-    <item
-        android:id="@+id/requestForJoin"
-        android:icon="@drawable/ic_admin_panel_request"
-        android:title="Requests"
-        app:cnb_iconColor="@color/colorPink"
-        app:cnb_textColor="@color/colorPink"
-        />
 
     <item
         android:id="@+id/reports"
@@ -18,6 +11,16 @@
         app:cnb_iconColor="@color/colorBlue"
         app:cnb_textColor="@color/colorBlue"
         />
+
+
+    <item
+        android:id="@+id/requestForJoin"
+        android:icon="@drawable/ic_admin_panel_request"
+        android:title="Requests"
+        app:cnb_iconColor="@color/colorPink"
+        app:cnb_textColor="@color/colorPink"
+        />
+
 
     <item
         android:id="@+id/allUsers"
@@ -35,6 +38,13 @@
         app:cnb_textColor="@color/colorAccent"
         />
 
+    <item
+        android:id="@+id/vacation_requests"
+        android:icon="@drawable/ic_vacations"
+        android:title="Vacations"
+        app:cnb_iconColor="@color/red"
+        app:cnb_textColor="@color/red"
+        />
 
 
 </menu>

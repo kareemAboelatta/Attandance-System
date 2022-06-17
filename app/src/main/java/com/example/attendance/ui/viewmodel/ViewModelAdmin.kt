@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.attendance.models.EventAdmin
 import com.example.attendance.models.Report
 import com.example.attendance.models.User
+import com.example.attendance.models.VacationRequest
 import com.example.attendance.repository.Repository
 import com.example.attendance.repository.RepositoryAdmin
 import com.example.attendance.utils.Constants
@@ -71,6 +72,15 @@ class ViewModelAdmin @Inject constructor(
         }
     }
 
+
+    var acceptVacationRequestLiveData = MutableLiveData<Resource<VacationRequest>>()
+    fun acceptRequest(request: VacationRequest) {
+        viewModelScope.launch {
+            acceptVacationRequestLiveData= repository.acceptVacationRequest(request)
+        }
+    }
+
+
     init {
         viewModelScope.launch {
             launch {
@@ -94,6 +104,13 @@ class ViewModelAdmin @Inject constructor(
         }
     }
 
+    var requestVacationLiveData=MutableLiveData<Resource<List<VacationRequest>>>()
+    fun getRequestVacations(){
+        viewModelScope.launch {
+            requestVacationLiveData=repository.getRequestsOfVacations()
+        }
+    }
+
     private var _uploadEventLiveData: MutableLiveData<Resource<EventAdmin>> = MutableLiveData()
     val uploadEventLiveData: MutableLiveData<Resource<EventAdmin>> get() = _uploadEventLiveData
     fun addEvent(caption: String, priority: Int) {
@@ -101,5 +118,14 @@ class ViewModelAdmin @Inject constructor(
             _uploadEventLiveData=repository.uploadEvent(caption, priority)
         }
     }
+
+
+    var changeNameOrBioLiveData= MutableLiveData<Resource<Boolean>>()
+    fun changeNameOrBio(id :String ,value: String,key: String){
+        viewModelScope.launch {
+            changeNameOrBioLiveData=repository.changeNameOrBio(id, value,key)
+        }
+    }
+
 
 }

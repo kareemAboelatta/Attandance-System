@@ -27,9 +27,61 @@
         <action
             android:id="@+id/action_fragmentAllEmps_to_fragmentAddEvent"
             app:destination="@id/fragmentAddEvent" />
+        <action
+            android:id="@+id/action_fragmentAllEmps_to_fragmentAttendanceForAdminSide"
+            app:destination="@id/fragmentAttendanceForAdminSide" />
+        <action
+            android:id="@+id/action_fragmentAllEmps_to_fragmentSalaryForAdminSide"
+            app:destination="@id/fragmentSalaryForAdminSide" />
+        <action
+            android:id="@+id/action_fragmentAllEmps_to_fragmentProfileForAdminSide"
+            app:destination="@id/fragmentProfileForAdminSide" />
+        <action
+            android:id="@+id/action_fragmentAllEmps_to_fragmentUpdateForAdminSide"
+            app:destination="@id/fragmentUpdateForAdminSide" />
     </fragment>
     <fragment
         android:id="@+id/fragmentAddEvent"
         android:name="com.example.attendance.ui.fragment.admin.FragmentAddEvent"
-        android:label="FragmentAddEvent" />
+        android:label="FragmentAddEvent" >
+        <action
+            android:id="@+id/action_fragmentAddEvent_to_fragmentVacationRequests"
+            app:destination="@id/fragmentVacationRequests" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAttendanceForAdminSide"
+        android:name="com.example.attendance.ui.fragment.admin.FragmentAttendanceForAdminSide"
+        android:label="FragmentAttendanceForAdminSide" >
+        <argument
+            android:name="user"
+            app:argType="com.example.attendance.models.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSalaryForAdminSide"
+        android:name="com.example.attendance.ui.fragment.admin.FragmentSalaryForAdminSide"
+        android:label="FragmentSalaryForAdminSide" >
+        <argument
+            android:name="user"
+            app:argType="com.example.attendance.models.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentProfileForAdminSide"
+        android:name="com.example.attendance.ui.fragment.admin.FragmentProfileForAdminSide"
+        android:label="FragmentProfileForAdminSide" >
+        <argument
+            android:name="user"
+            app:argType="com.example.attendance.models.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentUpdateForAdminSide"
+        android:name="com.example.attendance.ui.fragment.admin.FragmentUpdateForAdminSide"
+        android:label="FragmentUpdateForAdminSide" >
+        <argument
+            android:name="user"
+            app:argType="com.example.attendance.models.User" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentVacationRequests"
+        android:name="com.example.attendance.ui.fragment.FragmentVacationRequests"
+        android:label="FragmentVacationRequests" />
 </navigation>

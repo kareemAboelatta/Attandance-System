@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.storage.StorageReference
+import kotlinx.android.synthetic.main.fragment_reset_password.*
 import javax.inject.Inject
 
 class RepositoryUser @Inject constructor(
@@ -116,24 +117,9 @@ class RepositoryUser @Inject constructor(
 
 
 
-    //
-    private fun setUserInfoOnDatabase(user: User) {
-        user.image=downloadUri
-        refDatabase.child(Constants.USERS).child(user.id+"").setValue(user).addOnSuccessListener {
-        }.addOnFailureListener {
-            Toast.makeText(context, " failure: " + it.message, Toast.LENGTH_SHORT).show()
-        }
-    }
-
-
-
-
-
-
-
 
     private val successToLoginLiveData = MutableLiveData<Resource<Boolean>>()
-    fun signInWithEmailAndPassword(email: String, password: String) : MutableLiveData<Resource<Boolean>> {
+    suspend fun signInWithEmailAndPassword(email: String, password: String) : MutableLiveData<Resource<Boolean>> {
         successToLoginLiveData.value=Resource.loading(null)
         auth.signInWithEmailAndPassword(email, password)
             .addOnSuccessListener {
@@ -146,6 +132,22 @@ class RepositoryUser @Inject constructor(
     }
 
 
+    // reset password
+    private val successToResetPasswordLiveData = MutableLiveData<Resource<Boolean>>()
+    suspend fun resetPassword(email : String): MutableLiveData<Resource<Boolean>> {
+        successToResetPasswordLiveData.value=Resource.loading(null)
+        auth.sendPasswordResetEmail (email).addOnCompleteListener { listener->
+            if (listener.isSuccessful){
+                successToResetPasswordLiveData.value=Resource.success(true)
+                Toast.makeText(context, "Check your email now ..", Toast.LENGTH_SHORT).show()
+            }
+
+        }.addOnFailureListener{
+            successToResetPasswordLiveData.value=Resource.error(it.message.toString(),false)
+            Toast.makeText(context, ""+it.message, Toast.LENGTH_SHORT).show()
+        }
+        return successToResetPasswordLiveData
+    }
 
 
 

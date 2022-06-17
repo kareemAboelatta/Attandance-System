@@ -5,9 +5,10 @@ object Constants {
 
     const val EVENT="event"
     const val USERS="users"
+    const val NOTIFICATION="notifications"
     const val ATTENDANCE="attendance"
     const val REPORTS="Reports"
-    const val vacationRequests="VacationRequests"
+    const val VACATION_REQUESTS="VacationRequests"
 
 
 

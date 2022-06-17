@@ -7,16 +7,16 @@
     android:orientation="vertical"
     app:cardCornerRadius="10dp"
     app:cardElevation="10dp"
-    app:cardBackgroundColor="@color/white"
-    android:layout_margin="@dimen/_4sdp"
-    app:contentPadding="@dimen/_10sdp"
+    app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="#FCF9F9"
+    android:layout_margin="@dimen/_2sdp"
+    app:contentPadding="@dimen/_2sdp"
     >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
-
 
         <LinearLayout
             android:id="@+id/post_profileLayout"
@@ -31,9 +31,9 @@
                 android:id="@+id/post_userPicture"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_profile"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="@dimen/_2sdp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_margin="@dimen/_5sdp"
                 ></de.hdodenhof.circleimageview.CircleImageView>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,32 +49,29 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Name"
-                    android:lines="1"
                     android:textColor="#000"
-                    android:textSize="18sp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <FrameLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="@dimen/_20sdp"
                     android:paddingVertical="@dimen/_4sdp"
                     android:background="@drawable/custom_shape">
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:background="?attr/selectableItemBackground"
                         >
-
                         <TextView
                             android:id="@+id/post_text_anyone"
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="anyone"
-                            android:lines="1"
                             android:textColor="@color/black"
-                            android:textSize="13sp" />
+                            android:textSize="16sp" />
 
 
 
@@ -86,16 +83,20 @@
                 <TextView
                     android:id="@+id/post_TimeIv"
                     android:text="33min "
-                    android:lines="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     />
             </LinearLayout>
 
-
+            <ImageButton
+                android:id="@+id/post_more_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_more"
+                android:background="@color/trans"
+                ></ImageButton>
 
         </LinearLayout>
-
 
 
         <TextView
@@ -105,22 +106,18 @@
             android:textSize="20sp"
             android:textStyle="normal"
             android:text="I love my mom"
-            android:autoLink="all"
-            android:layout_margin="@dimen/_2sdp"
+            android:layout_margin="@dimen/_5sdp"
             />
 
         <TextView
-            android:id="@+id/post_language"
-            android:layout_width="match_parent"
+            android:id="@+id/post_days"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:textStyle="normal"
-            android:visibility="gone"
-            android:gravity="end"
-            android:text="translated from en"
-            android:textColor="@color/purple_500"
-            android:layout_margin="@dimen/_2sdp"
-            />
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:textColor="@color/colorGreen"
+            android:text="I need just 11 days"/>
 
 
 
@@ -131,6 +128,30 @@
             android:background="#F5F4F0"
             />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+            <ImageView
+                android:id="@+id/vacation_accept"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:src="@drawable/ic_circle_accept"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_weight="1"
+                />
+
+            <ImageView
+                android:id="@+id/vacation_cancle"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_33sdp"
+                android:src="@drawable/ic_close"
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_weight="1"
+                />
+        </LinearLayout>
 
 
 

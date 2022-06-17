@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
-    android:layout_margin="@dimen/_5sdp"
-    app:cardBackgroundColor="@color/opacityWhiteColor"
+    android:padding="@dimen/_15sdp"
+    android:layout_margin="@dimen/_10sdp"
+    app:cardBackgroundColor="@color/white"
     app:cardElevation="@dimen/_5sdp"
     app:cardCornerRadius="@dimen/_7sdp">
 
@@ -14,47 +14,64 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:orientation="horizontal"
+        android:padding="@dimen/_10sdp"
+        >
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/user_image"
-            android:layout_width="@dimen/_75sdp"
-            android:layout_height="@dimen/_75sdp"
-            android:scaleType="centerCrop"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
             android:src="@drawable/ic_profile"
+            android:layout_margin="@dimen/_5sdp"
             />
 
-
-        <TextView
-            android:id="@+id/user_name"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:text="Kareem kamal"
-            android:textColor="@color/colorAccent"
-            android:textSize="22sp"
-            android:textStyle="bold"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="Kareem kamal"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                android:textStyle="bold"
 
-            />
-        <TextView
-            android:id="@+id/user_bio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:text="android"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:id="@+id/user_branch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:text="android"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            />
+                />
+            <TextView
+                android:id="@+id/user_bio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="android"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/user_branch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:text="android"
 
+                android:textSize="14sp"
+                />
+
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/ic_more"
+            android:layout_gravity="center"
+            app:tint="@color/black"
+            android:layout_weight="1"/>
 
 
     </LinearLayout>

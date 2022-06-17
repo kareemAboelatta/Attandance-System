@@ -50,4 +50,8 @@
         android:id="@+id/checkSalaryFragment"
         android:name="com.example.attendance.ui.fragment.employee.CheckSalaryFragment"
         android:label="CheckSalaryFragment" />
+    <fragment
+        android:id="@+id/fragmentNotifications"
+        android:name="com.example.attendance.ui.fragment.employee.FragmentNotifications"
+        android:label="FragmentNotifications" />
 </navigation>

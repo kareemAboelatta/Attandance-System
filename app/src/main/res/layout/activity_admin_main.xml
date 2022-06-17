@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,58 +8,30 @@
     tools:context=".ui.activity.AdminMainActivity">
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:background="@color/colorWhite"
-        android:orientation="vertical"
-        >
-        <com.ismaeldivita.chipnavigation.ChipNavigationBar
-            android:id="@+id/bottom_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/colorWhite"
-            app:cnb_orientationMode="vertical"
-            app:cnb_animationDuration="250"
-            app:cnb_badgeColor="@color/red"
-            android:elevation="@dimen/_5sdp"
-            app:cnb_menuResource="@menu/admin_menu"
-            app:cnb_radius="@dimen/_5sdp"
-            app:layout_constraintStart_toStartOf="parent"
-            />
-        <ImageView
-            android:id="@+id/expand_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_arrow_forward"
-            android:layout_margin="@dimen/_10sdp"
-            android:layout_gravity="end"
-            />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/container_Main"
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/bottom_menu"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <fragment
-            android:id="@+id/container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="@dimen/_2sdp"
-            android:background="@color/colorAccent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bottom_menu"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            app:navGraph="@navigation/admin_nav_graph"
-            app:defaultNavHost="true"
-            />
+        android:layout_height="@dimen/_60sdp"
+        android:background="@color/colorWhite"
+        app:cnb_menuResource="@menu/admin_menu"
+        app:cnb_radius="@dimen/_10sdp"
+        app:cnb_badgeColor="@color/red"
+        app:cnb_animationDuration="250"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
+    <fragment
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bottom_menu"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        app:navGraph="@navigation/admin_nav_graph"
+        app:defaultNavHost="true"
+        />
 
 
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import com.bumptech.glide.RequestManager
 import com.example.attendance.R
 import com.example.attendance.ui.viewmodel.MainViewModel
 import com.example.attendance.utils.Status
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_attendance.*
@@ -20,7 +21,8 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class CheckSalaryFragment : Fragment(R.layout.fragment_check_salary) {
 
-
+    @Inject
+    lateinit var auth:FirebaseAuth
 
     private val viewModel by viewModels<MainViewModel>()
 
@@ -60,7 +62,7 @@ class CheckSalaryFragment : Fragment(R.layout.fragment_check_salary) {
 
         }
 
-        viewModel.getAttendance()
+        viewModel.getAttendance(auth.currentUser?.uid!!)
         viewModel.getAttendanceLiveData.observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.SUCCESS -> {

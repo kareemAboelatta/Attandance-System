@@ -99,7 +99,7 @@ class Repository @Inject constructor(
         vacationRequest.requestTime = timeStamp
         vacationRequest.vacationId = timeStamp
 
-        val ref = refDatabase.child(Constants.vacationRequests)
+        val ref = refDatabase.child(Constants.VACATION_REQUESTS)
         ref.child(timeStamp).setValue(vacationRequest).addOnSuccessListener {
             requestVacationLiveData.value = Resource.success(true)
         }.addOnFailureListener { e ->
@@ -114,22 +114,52 @@ class Repository @Inject constructor(
 
     // get attendance for this user
     private val attendanceLiveData = MutableLiveData<Resource<List<String>>>()
-    suspend fun getAttendance(): MutableLiveData<Resource<List<String>>> {
+    suspend fun getAttendance(id:String): MutableLiveData<Resource<List<String>>> {
         refDatabase.child(Constants.USERS)
-            .child(auth.currentUser?.uid!!).child(Constants.ATTENDANCE)
+            .child(id).child(Constants.ATTENDANCE)
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    var attendances = snapshot.value as HashMap<String, Any>
-                    var list = ArrayList<String>()
-                    attendances.forEach {
-                        list.add(it.key)
-                    }
-                    attendanceLiveData.value = Resource.success(list)
+                    if (snapshot.value != null && snapshot.exists()) {
+                        var attendances = snapshot.value as HashMap<String, Any>
+                        var list = ArrayList<String>()
+                        attendances.forEach {
+                            list.add(it.key)
+                        }
+                        attendanceLiveData.value = Resource.success(list)
+                    }else
+                        attendanceLiveData.value=Resource.success(emptyList())
+
+
+
                 }
 
                 override fun onCancelled(error: DatabaseError) {
                     attendanceLiveData.value = Resource.error(error.message, null)
 
+                }
+            })
+        return attendanceLiveData
+    }
+
+    // get notifications for this user
+    private val NotificatiosLiveData = MutableLiveData<Resource<List<String>>>()
+    suspend fun getNotificatios(id:String): MutableLiveData<Resource<List<String>>> {
+        refDatabase.child(Constants.USERS)
+            .child(id).child(Constants.NOTIFICATION)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.value != null && snapshot.exists()) {
+                        var attendances = snapshot.value as HashMap<String, Any>
+                        var list = ArrayList<String>()
+                        attendances.forEach {
+                            list.add(it.value as String)
+                        }
+                        attendanceLiveData.value = Resource.success(list)
+                    }else
+                        attendanceLiveData.value=Resource.success(emptyList())
+                }
+                override fun onCancelled(error: DatabaseError) {
+                    attendanceLiveData.value = Resource.error(error.message, null)
                 }
             })
         return attendanceLiveData
