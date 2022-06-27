@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.attendance.R
 import com.example.attendance.adapters.AdapterReport
@@ -47,6 +48,17 @@ class FragmentReports : Fragment(R.layout.fragment_reports) {
                     Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+
+
+        reportAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putParcelable("report", it)
+            }
+            findNavController().navigate(
+                R.id.action_fragmentReports_to_reportDetailsFragmentForAdmin,
+                bundle
+            )
         }
 
 

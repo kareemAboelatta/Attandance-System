@@ -1,13 +1,9 @@
 package com.example.attendance.repository
 
 import android.content.Context
-import android.net.Uri
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
-import com.example.attendance.models.EventAdmin
-import com.example.attendance.models.Report
-import com.example.attendance.models.User
-import com.example.attendance.models.VacationRequest
+import com.example.attendance.models.*
 import com.example.attendance.utils.Constants
 import com.example.attendance.utils.Resource
 import com.google.firebase.auth.FirebaseAuth
@@ -78,11 +74,20 @@ class RepositoryAdmin @Inject constructor(
     }
 
     fun sendNotificationForEmployeeForVacation(userId:String,name:String,vacationId:String){
+        val notification=Notification(
+            "Hey ${name.split(" ")[0]}, Your request For Vacation had been accepted from admin",
+            "vacation",
+            vacationId
+        )
         refDatabase.child(Constants.USERS)
             .child(userId)
-            .child(Constants.NOTIFICATION)  //name = kareem aboelatta
-            .setValue(mapOf(vacationId to "Hey ${name.split(" ")[0]}, Your request For Vacation had been accepted from admin" ))
+            .child(Constants.NOTIFICATION)
+            .child(vacationId)//name = kareem aboelatta
+            .setValue(notification)
     }
+
+
+
 
 
 
@@ -158,29 +163,70 @@ class RepositoryAdmin @Inject constructor(
         key: String
     ): MutableLiveData<Resource<Boolean>> {
         var changeNameOrBioLiveData = MutableLiveData<Resource<Boolean>>()
-        if (key=="salary")
-        {
-            refDatabase.child(Constants.USERS).child(id).child("" + key).setValue(value.toInt())
-                .addOnSuccessListener {
-                    changeNameOrBioLiveData.value = Resource.success(true)
 
-                }.addOnFailureListener {
-                    changeNameOrBioLiveData.value = Resource.error(it.localizedMessage, false)
+        refDatabase.child(Constants.USERS).child(id).child("" + key).setValue(value)
+            .addOnSuccessListener {
+                changeNameOrBioLiveData.value = Resource.success(true)
 
-                }
-        }else{
-            refDatabase.child(Constants.USERS).child(id).child("" + key).setValue(value)
-                .addOnSuccessListener {
-                    changeNameOrBioLiveData.value = Resource.success(true)
+            }.addOnFailureListener {
+                changeNameOrBioLiveData.value = Resource.error(it.localizedMessage, false)
 
-                }.addOnFailureListener {
-                    changeNameOrBioLiveData.value = Resource.error(it.localizedMessage, false)
+            }
 
-                }
-        }
 
 
         return changeNameOrBioLiveData
     }
+
+    suspend fun changeNameOrBio(
+        id: String,
+        value: Int,
+        key: String
+    ): MutableLiveData<Resource<Boolean>> {
+        var changeNameOrBioLiveData = MutableLiveData<Resource<Boolean>>()
+
+        refDatabase.child(Constants.USERS).child(id).child("" + key).setValue(value)
+            .addOnSuccessListener {
+                changeNameOrBioLiveData.value = Resource.success(true)
+
+            }.addOnFailureListener {
+                changeNameOrBioLiveData.value = Resource.error(it.localizedMessage, false)
+
+            }
+
+
+
+        return changeNameOrBioLiveData
+    }
+
+
+
+    var mProcessComment = true
+    suspend fun postComment(report:Report,comment: Comment){
+        //put this data in DB :
+        refDatabase.child(Constants.REPORTS).child(report.reportId)
+            .child(Constants.COMMENTS).child(comment.timeStamp)
+            .setValue(comment).addOnSuccessListener { // added
+                Toast.makeText(context, "Comment added", Toast.LENGTH_SHORT).show()
+                mProcessComment = true
+                sendNotificationForEmployeeForRepotyReplaying(report.userId, report.reportId)
+            }.addOnFailureListener { e -> //failed
+                Toast.makeText(context, "" + e.message, Toast.LENGTH_LONG).show()
+            }
+    }
+
+    private fun sendNotificationForEmployeeForRepotyReplaying(userId:String, reportId:String){
+        val notifaction=Notification(
+            "Your report had been replayed from admin ",
+            "report",
+            reportId
+        )
+        refDatabase.child(Constants.USERS)
+            .child(userId)
+            .child(Constants.NOTIFICATION)
+            .child(reportId) //name = kareem aboelatta
+            .setValue(notifaction)
+    }
+
 
 }

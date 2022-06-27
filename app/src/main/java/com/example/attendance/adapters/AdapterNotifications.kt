@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.RequestManager
 import com.example.attendance.R
+import com.example.attendance.models.Notification
+import com.example.attendance.models.User
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.android.synthetic.main.item_attend.view.*
 import kotlinx.android.synthetic.main.item_notification.view.*
@@ -25,13 +27,13 @@ class AdapterNotifications @Inject constructor (
 
 
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<String>() {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Notification>() {
 
-            override fun areItemsTheSame(oldItem: String, newItem: String): Boolean =
-                oldItem == newItem
+            override fun areItemsTheSame(oldItem: Notification, newItem: Notification): Boolean =
+                oldItem.notification == newItem.notification
 
-            override fun areContentsTheSame(oldItem: String, newItem: String): Boolean =
-                oldItem == newItem
+            override fun areContentsTheSame(oldItem: Notification, newItem: Notification): Boolean =
+                oldItem.notification == newItem.notification
 
         }
     }
@@ -49,11 +51,26 @@ class AdapterNotifications @Inject constructor (
         )
     }
 
+
+    private var onItemClickListener: ((Notification) -> Unit)? = null
+    fun setOnItemClickListener(listener: (Notification) -> Unit) {
+        onItemClickListener = listener
+    }
+
     override fun onBindViewHolder(holder: AttendViewHolder, position: Int) {
-        val   currentDate = differ.currentList[position]
+        val   currentNotification = differ.currentList[position]
 
         holder.itemView.apply {
-            notification_text.text=currentDate
+            notification_text.text=currentNotification.notification
+
+
+            if (currentNotification.type == "report"){
+                setOnClickListener {
+                    onItemClickListener?.let {
+                        it(currentNotification)
+                    }
+                }
+            }
 
         }
 

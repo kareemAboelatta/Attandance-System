@@ -8,6 +8,7 @@ object Constants {
     const val NOTIFICATION="notifications"
     const val ATTENDANCE="attendance"
     const val REPORTS="Reports"
+    const val COMMENTS="Comments"
     const val VACATION_REQUESTS="VacationRequests"
 
 

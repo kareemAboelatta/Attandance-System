@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/report_details_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:layout_above="@+id/commentLayout"
+        >
+
+        <!-- Actual post -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="#FCF9F9"
+                app:contentPadding="6dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/profileLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        >
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/det_userPictureIv"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_profile"
+                            android:layout_width="55dp"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:layout_height="55dp"
+                            ></de.hdodenhof.circleimageview.CircleImageView>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
+                            >
+                            <TextView
+                                android:id="@+id/det_uNameIv"
+                                android:text="Name"
+                                android:textSize="22sp"
+                                android:textColor="#000"
+                                android:textStyle="bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_2sdp"
+                                />
+
+
+                            <FrameLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="@dimen/_30sdp"
+                                android:paddingVertical="@dimen/_4sdp"
+                                android:background="@drawable/custom_shape">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:background="?attr/selectableItemBackground"
+                                    >
+
+                                    <TextView
+                                        android:id="@+id/report_text_roll"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:text="android developer"
+                                        android:lines="1"
+                                        android:textColor="@color/black"
+                                        android:textSize="13sp" />
+
+
+
+
+                                </LinearLayout>
+
+                            </FrameLayout>
+
+
+
+                            <TextView
+                                android:id="@+id/det_pTimeIv"
+                                android:text="33 min "
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_2sdp"
+                                />
+                        </LinearLayout>
+
+                        <ImageButton
+                            android:id="@+id/det_more_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_more"
+                            android:background="@color/trans"
+                            ></ImageButton>
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/det_pTitleIv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="title"
+                        android:layout_margin="@dimen/_2sdp"
+                        android:textStyle="normal"
+                        />
+
+
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#DAD8CD"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
+
+
+
+                        <Button
+                            android:id="@+id/det_post_read_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Read"
+                            android:layout_marginHorizontal="@dimen/_1sdp"
+                            app:icon="@drawable/ic_voice"
+                            android:background="@color/trans"
+                            android:drawableTint="@color/colorPrimary"
+                            android:drawableStart="@drawable/ic_voice"
+                            android:layout_margin="@dimen/_5sdp"
+                            android:textColor="@color/colorPrimary"
+                            android:backgroundTint="@color/colorPrimary"
+
+                            />
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- List of coments here :next part-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Replays from the admin"
+                android:textColor="@color/colorPrimary"
+                android:drawableStart="@drawable/ic_comment"
+                android:padding="2dp"
+                android:textStyle="italic"
+                android:drawableLeft="@drawable/ic_comment"
+                android:drawablePadding="5dp"
+
+                />
+
+            <ProgressBar
+                android:id="@+id/det_ProgressBar_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/det_rec_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_comment"
+
+                />
+        </LinearLayout>
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="?attr/colorPrimary"
+        android:title="Your Attendance"
+        android:titleTextColor="@android:color/white">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:background="@color/trans"
+            android:src="@drawable/ic_arrow_back"
+            android:tint="@color/white"
+
+            />
+
+        <TextView
+            android:id="@+id/attendance_emp_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Attendance"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <RelativeLayout
+        android:id="@+id/commentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="@dimen/_4sdp"
+        android:elevation="@dimen/_4sdp"
+        >
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/det_cAvatarTv"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:src="@drawable/profile" />
+        <EditText
+            android:id="@+id/det_commentEt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:layout_toEndOf="@id/det_cAvatarTv"
+            android:layout_toStartOf="@id/det_btn_comment"
+            android:layout_centerVertical="true"
+            android:background="@drawable/edit_text_background"
+            android:padding="@dimen/_8sdp"
+            android:hint="Replay as admin .."
+            android:inputType="textMultiLine|textCapSentences"
+            />
+
+        <ImageButton
+            android:id="@+id/det_btn_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginVertical="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_7sdp"
+            android:background="@null"
+            android:rotation="-20"
+            android:src="@drawable/ic_baseline_send_24" />
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

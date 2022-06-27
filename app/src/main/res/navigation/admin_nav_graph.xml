@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/admin_nav_graph"
-    app:startDestination="@id/fragmentRequests">
+    app:startDestination="@id/fragmentReports">
 
     <fragment
         android:id="@+id/fragmentRequests"
@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_fragmentReports_to_fragmentAllEmps"
             app:destination="@id/fragmentAllEmps" />
+        <action
+            android:id="@+id/action_fragmentReports_to_reportDetailsFragmentForAdmin"
+            app:destination="@id/reportDetailsFragmentForAdmin" />
     </fragment>
     <fragment
         android:id="@+id/fragmentAllEmps"
@@ -82,6 +85,14 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentVacationRequests"
-        android:name="com.example.attendance.ui.fragment.FragmentVacationRequests"
+        android:name="com.example.attendance.ui.fragment.admin.FragmentVacationRequests"
         android:label="FragmentVacationRequests" />
+    <fragment
+        android:id="@+id/reportDetailsFragmentForAdmin"
+        android:name="com.example.attendance.ui.fragment.admin.ReportDetailsFragmentForAdmin"
+        android:label="ReportDetailsFragmentForAdmin" >
+        <argument
+            android:name="report"
+            app:argType="com.example.attendance.models.Report" />
+    </fragment>
 </navigation>

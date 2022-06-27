@@ -4,6 +4,37 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:title="Your Attendance"
+        android:titleTextColor="@android:color/white"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_arrow_back"
+            android:background="@color/trans"
+            android:tint="@color/white"
+
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:text="Your attendance statistics"
+            android:textColor="@color/white"
+            />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,7 +43,7 @@
         app:cardBackgroundColor="@color/white"
         android:layout_margin="@dimen/_10sdp"
         android:padding="@dimen/_25sdp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         android:id="@+id/temp_constaint"
         android:orientation="vertical"
         >

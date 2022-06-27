@@ -136,7 +136,7 @@ class RepositoryUser @Inject constructor(
     private val successToResetPasswordLiveData = MutableLiveData<Resource<Boolean>>()
     suspend fun resetPassword(email : String): MutableLiveData<Resource<Boolean>> {
         successToResetPasswordLiveData.value=Resource.loading(null)
-        auth.sendPasswordResetEmail (email).addOnCompleteListener { listener->
+        auth.sendPasswordResetEmail(email).addOnCompleteListener { listener->
             if (listener.isSuccessful){
                 successToResetPasswordLiveData.value=Resource.success(true)
                 Toast.makeText(context, "Check your email now ..", Toast.LENGTH_SHORT).show()

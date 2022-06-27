@@ -64,6 +64,10 @@ class AdapterReport  @Inject constructor (
             post_text_anyone.text=report.userRoll
 
 
+            report_replay_btn.setOnClickListener {
+                onItemClickListener?.let { it(report) }
+            }
+
 
 
 
@@ -92,7 +96,10 @@ class AdapterReport  @Inject constructor (
 
 
 
-
+    private var onItemClickListener: ((Report) -> Unit)? = null
+    fun setOnItemClickListener(listener: (Report) -> Unit) {
+        onItemClickListener = listener
+    }
 
 
 

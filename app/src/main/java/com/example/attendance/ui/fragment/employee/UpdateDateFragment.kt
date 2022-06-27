@@ -1,4 +1,4 @@
-package com.example.attendance.ui.fragment.admin
+package com.example.attendance.ui.fragment.employee
 
 import android.app.AlertDialog
 import android.app.ProgressDialog
@@ -12,43 +12,52 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.attendance.R
-import com.example.attendance.adapters.AdapterAttend
 import com.example.attendance.ui.viewmodel.MainViewModel
 import com.example.attendance.ui.viewmodel.ViewModelAdmin
 import com.example.attendance.utils.Status
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_admin_main.*
-import kotlinx.android.synthetic.main.fragment_update_admin.*
-import java.text.SimpleDateFormat
-import java.util.*
-import javax.inject.Inject
-import kotlin.collections.ArrayList
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_update.*
 
 @AndroidEntryPoint
-class FragmentUpdateForAdminSide : Fragment(R.layout.fragment_update_admin) {
+class UpdateDateFragment : Fragment(R.layout.fragment_update) {
 
-
-    @Inject
-    lateinit var adapter: AdapterAttend
-    lateinit var arrayList: List<String>
     lateinit var prog: ProgressDialog
 
 
-    val args : FragmentUpdateForAdminSideArgs by navArgs()
-
-    var userId:String ="args.user.id"
-    var name:String ="args.user.name"
+    lateinit var userId:String
 
     private  val viewModel by  viewModels<ViewModelAdmin>()
+    private  val myViewModel by  viewModels<MainViewModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        userId=args.user.id
-        name=args.user.name
-        update_name.text=name
+
+        myViewModel.getDataForCurrentUser()
+        myViewModel.currentUserLiveData.observe(viewLifecycleOwner){
+            when (it.status) {
+                Status.LOADING -> {
+                    update_progress_bar.visibility = View.VISIBLE
+                }
+                Status.SUCCESS -> {
+                    val user = it.data!!
+                    update_progress_bar.visibility = View.GONE
+                    update_name.text=user.name
+                    update_text.text="Hey ${user.name.split(" ")[0]} What you want to update ?"
+                    userId=user.id
+                }
+                Status.ERROR -> {
+                    update_progress_bar.visibility = View.GONE
+                    Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+
+
+
 
         btn_back_update.setOnClickListener {
             findNavController().popBackStack()
@@ -61,8 +70,8 @@ class FragmentUpdateForAdminSide : Fragment(R.layout.fragment_update_admin) {
             showUpdateNameBioDialog("name")
         }
 
-        btn_update_salary.setOnClickListener {
-            showUpdateNameBioDialog("salary")
+        btn_update_bio.setOnClickListener {
+            showUpdateNameBioDialog("bio")
 
         }
 
@@ -93,8 +102,8 @@ class FragmentUpdateForAdminSide : Fragment(R.layout.fragment_update_admin) {
         val editText = EditText(activity)
         if (key == "name"){
             editText.hint = "Enter new name"
-        }else if(key == "salary"){
-            editText.hint="Enter Salary"
+        }else if(key == "bio"){
+            editText.hint="Enter new bio"
             editText.inputType= InputType.TYPE_CLASS_NUMBER
         }else if(key == "roll"){
             editText.hint="Enter new roll"
@@ -112,11 +121,7 @@ class FragmentUpdateForAdminSide : Fragment(R.layout.fragment_update_admin) {
                 Toast.makeText(activity, "Where's Your new $key", Toast.LENGTH_SHORT).show()
             }else{
                 //update key
-                if (key=="salary"){
-                    viewModel.changeNameOrBio(userId,value.toInt(),key)
-                }else{
-                    viewModel.changeNameOrBio(userId,value,key)
-                }
+                viewModel.changeNameOrBio(userId,value,key)
                 prog.show()
                 viewModel.changeNameOrBioLiveData.observe(viewLifecycleOwner){
                     when(it.status){
@@ -153,34 +158,54 @@ class FragmentUpdateForAdminSide : Fragment(R.layout.fragment_update_admin) {
 
 
 
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activity?.bottom_menu?.visibility = View.GONE
+        activity?.bottomAppBar?.visibility = View.GONE
+        activity?.bottomAppBar?.visibility = View.GONE
+        activity?.next_event_text?.visibility = View.GONE
+        activity?.fab?.visibility = View.GONE
+
     }
 
     override fun onPause() {
         super.onPause()
-        activity?.bottom_menu?.visibility = View.VISIBLE
+        activity?.bottomAppBar?.visibility = View.VISIBLE
+        activity?.bottomAppBar?.visibility = View.VISIBLE
+        activity?.fab?.visibility = View.VISIBLE
+        activity?.next_event_text?.visibility = View.VISIBLE
     }
 
     override fun onStop() {
         super.onStop()
-        activity?.bottom_menu?.visibility = View.VISIBLE
-
+        activity?.bottomAppBar?.visibility = View.VISIBLE
+        activity?.bottomAppBar?.visibility = View.VISIBLE
+        activity?.fab?.visibility = View.VISIBLE
+        activity?.next_event_text?.visibility = View.VISIBLE
 
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        activity?.bottom_menu?.visibility = View.VISIBLE
-
+        activity?.bottomAppBar?.visibility = View.VISIBLE
+        activity?.bottomAppBar?.visibility = View.VISIBLE
+        activity?.fab?.visibility = View.VISIBLE
+        activity?.next_event_text?.visibility = View.VISIBLE
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        activity?.bottom_menu?.visibility = View.VISIBLE
+        activity?.bottomAppBar?.visibility = View.VISIBLE
+        activity?.bottomAppBar?.visibility = View.VISIBLE
+        activity?.fab?.visibility = View.VISIBLE
+        activity?.next_event_text?.visibility = View.VISIBLE
 
     }
+
+
+
 
 
 }

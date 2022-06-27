@@ -15,7 +15,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="@dimen/_30sdp"
-        android:layout_marginTop="@dimen/_10sdp"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bottom_menu"
@@ -33,7 +32,7 @@
         android:marqueeRepeatLimit="marquee_forever"
         android:singleLine="true"
         android:elevation="@dimen/_2sdp"
-        android:padding="@dimen/_5sdp"
+        android:padding="@dimen/_8sdp"
         android:textColor="@color/white"
         android:background="@color/colorPrimary"
         />

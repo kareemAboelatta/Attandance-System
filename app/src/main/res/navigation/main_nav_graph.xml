@@ -33,7 +33,11 @@
     <fragment
         android:id="@+id/moreFragment"
         android:name="com.example.attendance.ui.fragment.employee.MoreFragment"
-        android:label="MoreFragment" />
+        android:label="MoreFragment" >
+        <action
+            android:id="@+id/action_moreFragment_to_updateDateFragment"
+            app:destination="@id/updateDateFragment" />
+    </fragment>
     <fragment
         android:id="@+id/sendReportFragment"
         android:name="com.example.attendance.ui.fragment.employee.SendReportFragment"
@@ -53,5 +57,21 @@
     <fragment
         android:id="@+id/fragmentNotifications"
         android:name="com.example.attendance.ui.fragment.employee.FragmentNotifications"
-        android:label="FragmentNotifications" />
+        android:label="FragmentNotifications" >
+        <action
+            android:id="@+id/action_fragmentNotifications_to_reportDetailsFragment"
+            app:destination="@id/reportDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateDateFragment"
+        android:name="com.example.attendance.ui.fragment.employee.UpdateDateFragment"
+        android:label="UpdateDateFragment" />
+    <fragment
+        android:id="@+id/reportDetailsFragment"
+        android:name="com.example.attendance.ui.fragment.employee.ReportDetailsFragment"
+        android:label="ReportDetailsFragment" >
+        <argument
+            android:name="notification"
+            app:argType="com.example.attendance.models.Notification" />
+    </fragment>
 </navigation>

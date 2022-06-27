@@ -53,6 +53,9 @@ class SendReportFragment : Fragment(R.layout.sendreport_fragment) {
 
 
 
+        btn_back.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
         publish_btn_publish.setOnClickListener {
             var caption = publish_caption.text.toString()

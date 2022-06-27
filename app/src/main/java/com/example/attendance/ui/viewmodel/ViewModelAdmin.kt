@@ -5,10 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.attendance.models.EventAdmin
-import com.example.attendance.models.Report
-import com.example.attendance.models.User
-import com.example.attendance.models.VacationRequest
+import com.example.attendance.models.*
 import com.example.attendance.repository.Repository
 import com.example.attendance.repository.RepositoryAdmin
 import com.example.attendance.utils.Constants
@@ -17,6 +14,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.getValue
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -124,6 +123,19 @@ class ViewModelAdmin @Inject constructor(
     fun changeNameOrBio(id :String ,value: String,key: String){
         viewModelScope.launch {
             changeNameOrBioLiveData=repository.changeNameOrBio(id, value,key)
+        }
+    }
+
+    fun changeNameOrBio(id :String ,value: Int,key: String){
+        viewModelScope.launch {
+            changeNameOrBioLiveData=repository.changeNameOrBio(id, value,key)
+        }
+    }
+
+
+    fun postComment(report:Report ,comment: Comment){
+        CoroutineScope(Dispatchers.Default).launch {
+            repository.postComment(report, comment)
         }
     }
 

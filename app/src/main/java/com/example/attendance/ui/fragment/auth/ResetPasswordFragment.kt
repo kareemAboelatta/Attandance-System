@@ -17,7 +17,6 @@ import javax.inject.Inject
 class ResetPasswordFragment : Fragment(R.layout.fragment_reset_password) {
 
 
-
     private  val viewModel by  viewModels<ViewModelSignUser>()
 
 

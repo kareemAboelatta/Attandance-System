@@ -1,4 +1,4 @@
-package com.example.attendance.ui.fragment
+package com.example.attendance.ui.fragment.admin
 
 import android.os.Bundle
 import android.view.View

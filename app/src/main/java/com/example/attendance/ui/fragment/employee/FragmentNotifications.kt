@@ -5,10 +5,12 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.RequestManager
 import com.example.attendance.R
 import com.example.attendance.adapters.AdapterNotifications
+import com.example.attendance.models.Notification
 import com.example.attendance.ui.viewmodel.MainViewModel
 import com.example.attendance.utils.Status
 import com.google.firebase.auth.FirebaseAuth
@@ -24,8 +26,7 @@ class FragmentNotifications : Fragment(R.layout.fragment_notification) {
 
     @Inject
     lateinit var auth: FirebaseAuth
-    lateinit var arrayList: List<String>
-
+    lateinit var arrayList: List<Notification>
 
     @Inject
     lateinit var adapter: AdapterNotifications
@@ -64,6 +65,15 @@ class FragmentNotifications : Fragment(R.layout.fragment_notification) {
 
 
 
+        adapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putParcelable("notification", it)
+            }
+            findNavController().navigate(
+                R.id.action_fragmentNotifications_to_reportDetailsFragment,
+                bundle
+            )
+        }
 
 
     }

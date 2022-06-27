@@ -35,10 +35,13 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.background=null
         bottomNavigationView.menu.getItem(2).isEnabled=false
 
+
         navController = findNavController(R.id.container)
         bottomNavigationView.setupWithNavController(navController)
 
-
+        fab.setOnClickListener {
+            navController.navigate(R.id.sendReportFragment)
+        }
         viewModel.getDataForCurrentUser()
         observeDataForUser()
 

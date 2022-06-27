@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.attendance.R
 import com.example.attendance.ui.activity.LoginAndSignUpActivity
 import com.example.attendance.ui.viewmodel.MainViewModel
@@ -20,7 +20,6 @@ class MoreFragment : Fragment(R.layout.fragment_more){
     lateinit var auth: FirebaseAuth
 
 
-    private  val viewModel by  viewModels<MainViewModel>()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,6 +30,13 @@ class MoreFragment : Fragment(R.layout.fragment_more){
             startActivity(Intent(requireContext(), LoginAndSignUpActivity::class.java))
             requireActivity().finish()
         }
+
+        more_btn_update_my_data.setOnClickListener {
+            findNavController().navigate(R.id.action_moreFragment_to_updateDateFragment)
+
+        }
+
+
     }
 
 }

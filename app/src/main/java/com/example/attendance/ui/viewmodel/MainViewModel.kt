@@ -6,10 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.attendance.models.EventAdmin
-import com.example.attendance.models.Report
-import com.example.attendance.models.User
-import com.example.attendance.models.VacationRequest
+import com.example.attendance.models.*
 import com.example.attendance.repository.Repository
 import com.example.attendance.utils.Resource
 import com.google.firebase.auth.FirebaseAuth
@@ -33,6 +30,14 @@ val auth: FirebaseAuth,
     fun getDataForCurrentUser() {
         viewModelScope.launch {
             _currentUserLiveData= repository.getCurrentUserData()
+        }
+    }
+
+    private var _getReportByIDLiveData: MutableLiveData<Resource<Report>> = MutableLiveData()
+    val getReportByIDLiveData: LiveData<Resource<Report>> get() = _getReportByIDLiveData
+    fun getReportByID(reportId:String) {
+        viewModelScope.launch {
+            _getReportByIDLiveData= repository.getReportByID(reportId)
         }
     }
 
@@ -69,11 +74,20 @@ val auth: FirebaseAuth,
 
     }
 
-    private var _getNotificationsLiveData : MutableLiveData<Resource<List<String>>> = MutableLiveData()
-    val getNotificationsLiveData: LiveData<Resource<List<String>>> get() = _getNotificationsLiveData
+    private var _getNotificationsLiveData : MutableLiveData<Resource<List<Notification>>> = MutableLiveData()
+    val getNotificationsLiveData: LiveData<Resource<List<Notification>>> get() = _getNotificationsLiveData
     fun getNotifications(id:String) {
         viewModelScope.launch {
             _getNotificationsLiveData = repository.getNotificatios(id)
+        }
+
+    }
+
+
+    var commentsLiveData=MutableLiveData<Resource<List<Comment>>>()
+    fun loadComments(postId:String){
+        viewModelScope.launch {
+            commentsLiveData=repository.loadComments(postId)
         }
 
     }

@@ -4,10 +4,7 @@ import android.content.Context
 import android.net.Uri
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
-import com.example.attendance.models.EventAdmin
-import com.example.attendance.models.Report
-import com.example.attendance.models.User
-import com.example.attendance.models.VacationRequest
+import com.example.attendance.models.*
 import com.example.attendance.utils.Constants
 import com.example.attendance.utils.Resource
 import com.google.firebase.auth.FirebaseAuth
@@ -43,19 +40,6 @@ class Repository @Inject constructor(
         return currentUserLiveData
     }
 
-
-    //get last event data
-    private val lastEventLiveData= MutableLiveData<Resource<EventAdmin>>()
-    suspend fun getLastEvent(): MutableLiveData<Resource<EventAdmin>> {
-        refDatabase.child(Constants.EVENT)
-            .get().addOnSuccessListener { snapShot->
-                val event=snapShot.getValue(EventAdmin::class.java)
-                lastEventLiveData.value= Resource.success(event)
-            }.addOnFailureListener {
-                lastEventLiveData.value= Resource.error(it.message.toString(),null)
-            }
-        return lastEventLiveData
-    }
 
     //get last event data
     private val getNewLastEvent= MutableLiveData<Resource<EventAdmin>>()
@@ -142,32 +126,65 @@ class Repository @Inject constructor(
     }
 
     // get notifications for this user
-    private val NotificatiosLiveData = MutableLiveData<Resource<List<String>>>()
-    suspend fun getNotificatios(id:String): MutableLiveData<Resource<List<String>>> {
-        refDatabase.child(Constants.USERS)
+    private val NotificatiosLiveData = MutableLiveData<Resource<List<Notification>>>()
+    suspend fun getNotificatios(id:String): MutableLiveData<Resource<List<Notification>>> {
+        var notificationList = ArrayList<Notification>()
+      var x=  refDatabase.child(Constants.USERS)
             .child(id).child(Constants.NOTIFICATION)
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.value != null && snapshot.exists()) {
-                        var attendances = snapshot.value as HashMap<String, Any>
-                        var list = ArrayList<String>()
-                        attendances.forEach {
-                            list.add(it.value as String)
-                        }
-                        attendanceLiveData.value = Resource.success(list)
-                    }else
-                        attendanceLiveData.value=Resource.success(emptyList())
+                    notificationList.clear()
+                    snapshot.children.forEach { child ->
+                        val notification = child.getValue<Notification>()
+                            notificationList.add(notification!!)
+                    }
+                    NotificatiosLiveData.value = Resource.success(notificationList)
                 }
                 override fun onCancelled(error: DatabaseError) {
-                    attendanceLiveData.value = Resource.error(error.message, null)
+                    NotificatiosLiveData.value = Resource.error(error.message, null)
                 }
             })
-        return attendanceLiveData
+        return NotificatiosLiveData
     }
 
 
 
+    private val commentsLiveData=MutableLiveData<Resource<List<Comment>>>()
+    suspend  fun loadComments(postId:String): MutableLiveData<Resource<List<Comment>>> {
+        var commentsList: ArrayList<Comment> = ArrayList()
+        commentsLiveData.value = Resource.loading(null)
+        refDatabase.child(Constants.REPORTS).child(postId).child(Constants.COMMENTS)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    commentsList.clear()
+                    snapshot.children.forEach { child ->
+                        val comment = child.getValue<Comment>()
+                        commentsList.add(comment!!)
+                    }
+                    commentsLiveData.value = Resource.success(commentsList)
+                }
 
+                override fun onCancelled(error: DatabaseError) {
+                    commentsLiveData.value = Resource.error(error.message, null)
 
+                }
+            })
+        return commentsLiveData
+    }
+
+    //get Current User Data
+    private val getReportByIDLiveData= MutableLiveData<Resource<Report>>()
+    suspend fun getReportByID(reportId: String): MutableLiveData<Resource<Report>> {
+        getReportByIDLiveData.postValue(Resource.loading(null))
+        refDatabase.child(Constants.REPORTS)
+            .child(reportId)
+            .get().addOnSuccessListener { snapShot->
+                val report=snapShot.getValue(Report::class.java)
+                getReportByIDLiveData.value= Resource.success(report)
+            }.addOnFailureListener {
+                getReportByIDLiveData.value= Resource.error(it.message.toString(),null)
+            }
+        return getReportByIDLiveData
+    }
 
 }

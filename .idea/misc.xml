@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/drawable/bottom_rounded.xml" value="0.108" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/drawable/edit_text_background.xml" value="0.1" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/drawable/ic_add.xml" value="0.147" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/drawable/ic_arrow_back.xml" value="0.147" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/drawable/ic_arrow_forward.xml" value="0.147" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.125" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/drawable/ic_bookmark.xml" value="0.147" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/drawable/ic_email.xml" value="0.173" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/drawable/ic_password.xml" value="0.147" />
@@ -33,14 +35,18 @@
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/fragment_profile.xml" value="0.15" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/fragment_profile_for_admin_side.xml" value="0.18426678067550234" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/fragment_register.xml" value="0.18" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/fragment_report_details_admin.xml" value="0.1708542713567839" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/fragment_report_details_employee.xml" value="0.22" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/fragment_reports.xml" value="0.18193330519206416" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/fragment_requests.xml" value="0.18193330519206416" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/fragment_reset_password.xml" value="0.14810996563573883" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/fragment_salary_for_admin_side.xml" value="0.18426678067550234" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/fragment_update.xml" value="0.18426678067550234" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/fragment_update_admin.xml" value="0.25" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/fragment_vacation_requests.xml" value="0.18426678067550234" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/home_item_list.xml" value="0.1" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/item_attend.xml" value="0.15755329008341057" />
+        <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/item_comment.xml" value="0.18" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/item_employee.xml" value="0.18193330519206416" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/item_notification.xml" value="0.18426678067550234" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/layout/item_report.xml" value="0.18193330519206416" />
