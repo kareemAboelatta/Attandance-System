@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
-                android:text="Your attendance statistics"
+                android:text="Your Calender"
                 android:textColor="@color/white"
                 />
 
@@ -40,19 +40,20 @@
         <ImageView
             android:layout_width="@dimen/_120sdp"
             android:layout_height="@dimen/_100sdp"
-            android:src="@drawable/analytics"
+            android:src="@drawable/timetable"
             android:layout_gravity="center"
             android:scaleType="fitXY"
-            android:layout_margin="@dimen/_5sdp"
+            android:layout_margin="@dimen/_10sdp"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimary"
-            android:text="Days that you are attending"
+            android:text="Days that you was attending "
             android:layout_margin="@dimen/_5sdp"
             android:textSize="23sp"
+            android:layout_gravity="center"
             android:textStyle="bold"
             android:labelFor="@+id/rec_attendance"
             />
