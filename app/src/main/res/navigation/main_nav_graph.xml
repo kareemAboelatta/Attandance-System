@@ -74,4 +74,8 @@
             android:name="notification"
             app:argType="com.example.attendance.models.Notification" />
     </fragment>
+    <fragment
+        android:id="@+id/fragmentCalender"
+        android:name="com.example.attendance.ui.fragment.employee.FragmentCalender"
+        android:label="FragmentCalender" />
 </navigation>

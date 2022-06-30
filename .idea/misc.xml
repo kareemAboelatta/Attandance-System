@@ -57,10 +57,13 @@
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/menu/bottom_menu_nav.xml" value="0.14810996563573883" />
         <entry key="..\:/Users/East-Sound/AndroidStudioProjects/Attendance/app/src/main/res/menu/pop_menu.xml" value="0.14722222222222223" />
         <entry key="..\:/Users/East-Sound/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.18426678067550234" />
+        <entry key="..\:/Users/aa/AndroidStudioProjects/Attandance-System/app/src/main/res/layout/fragment_attendance.xml" value="0.28888888888888886" />
+        <entry key="..\:/Users/aa/AndroidStudioProjects/Attandance-System/app/src/main/res/layout/fragmetn_my_calender.xml" value="0.25" />
+        <entry key="..\:/Users/aa/AndroidStudioProjects/Attandance-System/app/src/main/res/layout/item_day.xml" value="0.1" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

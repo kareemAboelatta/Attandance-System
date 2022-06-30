@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setupWithNavController(navController)
 
         fab.setOnClickListener {
-            navController.navigate(R.id.sendReportFragment)
+            navController.navigate(R.id.fragmentCalender)
         }
         viewModel.getDataForCurrentUser()
         observeDataForUser()
