@@ -10,28 +10,29 @@
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/employee"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/employee"
         android:supportsRtl="true"
         android:theme="@style/Theme.Attendance">
         <activity
-            android:name=".ui.activity.AdminMainActivity"
+            android:name=".ui.activity.SplashScreen"
             android:exported="true"
-            android:theme="@style/AppThemeForAdmin"
-            >
-
-        </activity>
-
-        <activity
-            android:name=".ui.activity.LoginAndSignUpActivity"
-            android:exported="true"
-            android:theme="@style/AppThemeForLogReg">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.AdminMainActivity"
+            android:exported="true"
+            android:theme="@style/AppThemeForAdmin"></activity>
+        <activity
+            android:name=".ui.activity.LoginAndSignUpActivity"
+            android:exported="true"
+            android:theme="@style/AppThemeForLogReg">
         </activity>
         <activity
             android:name=".ui.activity.MainActivity"

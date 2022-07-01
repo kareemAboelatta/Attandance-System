@@ -186,8 +186,6 @@ class ReportDetailsFragment :  Fragment(R.layout.fragment_report_details_employe
         activity?.fab?.visibility = View.VISIBLE
         activity?.next_event_text?.visibility = View.VISIBLE
 
-        t1?.stop()
-
     }
 
     override fun onDestroy() {
@@ -196,8 +194,6 @@ class ReportDetailsFragment :  Fragment(R.layout.fragment_report_details_employe
         activity?.bottomAppBar?.visibility = View.VISIBLE
         activity?.fab?.visibility = View.VISIBLE
         activity?.next_event_text?.visibility = View.VISIBLE
-        t1?.stop()
-
     }
 
     override fun onDestroyView() {
@@ -207,12 +203,7 @@ class ReportDetailsFragment :  Fragment(R.layout.fragment_report_details_employe
         activity?.fab?.visibility = View.VISIBLE
         activity?.next_event_text?.visibility = View.VISIBLE
 
-
-        t1?.stop()
-
-
     }
-
 
 
 }

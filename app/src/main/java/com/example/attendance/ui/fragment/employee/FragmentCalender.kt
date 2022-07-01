@@ -64,10 +64,11 @@ class FragmentCalender : Fragment(R.layout.fragmetn_my_calender) {
 
 
         viewModel.getAttendance(auth.currentUser?.uid!!)
-        viewModel.getAttendanceLiveData.observe(requireActivity()) {
+        viewModel.getAttendanceLiveData.observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.SUCCESS -> {
                     if (it.data != null) {
+
                         txt_you_attend.text = "You attend ${it.data.size.toString()} days"
                         Log.e("error", "onViewCreated:${it.data}" )
                         it.data.forEach {day->
